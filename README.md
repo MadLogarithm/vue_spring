@@ -1,4 +1,5 @@
 # vue_spring
+Record the learning process.
 
 ## Project setup
 ```

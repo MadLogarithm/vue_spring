@@ -4,7 +4,7 @@ import { createRouter, createWebHistory} from "vue-router"
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
-import HelloWorld from "@/components/HelloWorld.vue";
+import HomeSet from "@/components/HomeSet.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,7 +15,7 @@ const router = createRouter({
         },
         {
             path: '/home',
-            component: HelloWorld
+            component: HomeSet
         }
     ]
 })

@@ -7,7 +7,7 @@ export default {
   components: {Search},
   data() {
     return {
-      selectId: null,
+      selectId: '',
       userData: []
     }
   },
@@ -29,7 +29,9 @@ export default {
   <div id="selectUser">
     <el-input v-model="selectId" placeholder="Select all user" style="width: 70%">
       <template #append>
-        <el-icon @click="selectById"><Search /></el-icon>
+        <el-button @click="selectById">
+          <el-icon><Search /></el-icon>
+        </el-button>
       </template>
     </el-input>
   </div>

@@ -18,6 +18,9 @@ export default {
             this.responseMessage = error;
             console.error('Error fetching hello:', error);
           });
+    },
+    resetHello() {
+      this.responseMessage = null;
     }
   }
 }
@@ -25,6 +28,7 @@ export default {
 
 <template>
   <el-button @click="getHello">get</el-button>
+  <el-button @click="resetHello">reset</el-button>
   <p>{{responseMessage}}</p>
 </template>
 

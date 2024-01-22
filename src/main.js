@@ -5,6 +5,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 import HomeSet from "@/components/HomeSet.vue";
+import BasicGet from "@/components/BasicGet.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,7 +16,13 @@ const router = createRouter({
         },
         {
             path: '/home',
-            component: HomeSet
+            component: HomeSet,
+            children: [
+                {
+                    path: '/basicGet',
+                    component: BasicGet
+                }
+            ]
         }
     ]
 })

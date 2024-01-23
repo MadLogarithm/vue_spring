@@ -5,7 +5,7 @@ export default {
   name: "BasicGet",
   data() {
     return {
-      responseMessage: ''
+      responseMessage: 'null'
     }
   },
   methods: {
@@ -20,7 +20,7 @@ export default {
           });
     },
     resetHello() {
-      this.responseMessage = null;
+      this.responseMessage = 'null';
     }
   }
 }

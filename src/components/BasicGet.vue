@@ -27,11 +27,18 @@ export default {
 </script>
 
 <template>
-  <el-button @click="getHello">get</el-button>
-  <el-button @click="resetHello">reset</el-button>
-  <p>{{responseMessage}}</p>
+  <div id="testButton">
+    <el-button @click="getHello">get</el-button>
+    <el-button @click="resetHello">reset</el-button>
+  </div>
+  <div id="messageBox">
+    <p>{{responseMessage}}</p>
+  </div>
 </template>
 
 <style scoped>
-
+#testButton, #messageBox {
+  display: flex;
+  justify-content: center;
+}
 </style>

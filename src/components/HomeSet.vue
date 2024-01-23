@@ -48,13 +48,13 @@
             <el-menu-item index="/basicGet">
               <template v-slot:title>
                 <el-icon><ChatSquare /></el-icon>
-                <span>basicGet</span>
+                <span>Get</span>
               </template>
             </el-menu-item>
             <el-menu-item index="/basicSelect">
               <template v-slot:title>
                 <el-icon><Memo /></el-icon>
-                <span>basicSelect</span>
+                <span>Select</span>
               </template>
             </el-menu-item>
           </el-sub-menu>

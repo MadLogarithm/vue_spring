@@ -7,6 +7,7 @@ import 'element-plus/dist/index.css'
 import HomeSet from "@/components/HomeSet.vue";
 import BasicGet from "@/components/BasicGet.vue";
 import BasicSelect from "@/components/BasicSelect.vue";
+import BasicEdit from "@/components/BasicEdit.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -26,6 +27,10 @@ const router = createRouter({
                 {
                     path: '/basicSelect',
                     component: BasicSelect
+                },
+                {
+                    path: '/basicEdit',
+                    component: BasicEdit
                 }
             ]
         }

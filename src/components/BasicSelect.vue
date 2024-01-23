@@ -21,13 +21,20 @@ export default {
             console.error('Error fetching user:',error);
           });
     }
+  },
+  created() {
+    this.selectById();
   }
 }
 </script>
 
 <template>
   <div id="selectUser">
-    <el-input v-model="selectId" placeholder="Select all user" style="width: 70%">
+    <el-input v-model="selectId"
+              placeholder="Select all user"
+              @input="selectById"
+              clearable
+              style="width: 70%">
       <template #append>
         <el-button @click="selectById">
           <el-icon><Search /></el-icon>

@@ -48,13 +48,19 @@
             <el-menu-item index="/basicGet">
               <template v-slot:title>
                 <el-icon><ChatSquare /></el-icon>
-                <span>Get</span>
+                <span>get</span>
               </template>
             </el-menu-item>
             <el-menu-item index="/basicSelect">
               <template v-slot:title>
                 <el-icon><Memo /></el-icon>
-                <span>Select</span>
+                <span>select</span>
+              </template>
+            </el-menu-item>
+            <el-menu-item index="/basicEdit">
+              <template v-slot:title>
+                <el-icon><EditPen /></el-icon>
+                <span>edit</span>
               </template>
             </el-menu-item>
           </el-sub-menu>
@@ -74,11 +80,20 @@
 </template>
 
 <script>
-import {ChatSquare, Coin, Connection, ElementPlus, HomeFilled, Memo, MoreFilled} from "@element-plus/icons-vue";
+import {
+  ChatSquare,
+  Coin,
+  Connection,
+  EditPen,
+  ElementPlus,
+  HomeFilled,
+  Memo,
+  MoreFilled
+} from "@element-plus/icons-vue";
 
 export default {
   name: "HomeSet.vue",
-  components: {Memo, ChatSquare, Connection, Coin, ElementPlus, MoreFilled, HomeFilled}
+  components: {EditPen, Memo, ChatSquare, Connection, Coin, ElementPlus, MoreFilled, HomeFilled}
 }
 </script>
 

@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import {Plus} from "@element-plus/icons-vue";
+import {ElMessage} from "element-plus";
 
 export default {
   name: "BasicEdit",
@@ -13,7 +14,8 @@ export default {
         name: '',
         age: ''
       },
-      dialogVisible: false
+      dialogVisible: false,
+      responseMessage: ''
     }
   },
   methods: {
@@ -27,7 +29,18 @@ export default {
           });
     },
     newUserSubmit() {
-      this.resetNewUser()
+      axios.post("http://localhost:8080/user", this.newUser)
+          .then(response => {
+            this.responseMessage = response.data;
+            this.messageBoxTrue();
+            this.selectAllUser();
+          })
+          .catch(error => {
+            this.responseMessage = error;
+            this.messageBoxFalse();
+            console.error("Error push user:", error);
+          });
+      this.resetNewUser();
       this.dialogVisible = false;
     },
     cancelSubmit() {
@@ -38,6 +51,18 @@ export default {
       this.newUser.id = '';
       this.newUser.name = '';
       this.newUser.age = '';
+    },
+    messageBoxTrue() {
+      ElMessage({
+        message: this.responseMessage,
+        type: 'success',
+      });
+    },
+    messageBoxFalse() {
+      ElMessage({
+        message: this.responseMessage,
+        type: 'error',
+    });
     }
   },
   created() {

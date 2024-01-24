@@ -37,6 +37,11 @@ export default {
       this.newUser.name = '';
       this.newUser.age = '';
       this.dialogVisible = false;
+    },
+    resetNewUser() {
+      this.newUser.id = '';
+      this.newUser.name = '';
+      this.newUser.age = '';
     }
   },
   created() {
@@ -57,7 +62,7 @@ export default {
     <el-button round @click="dialogVisible = true">
       <el-icon><Plus /></el-icon>
     </el-button>
-    <el-dialog v-model="dialogVisible" title="New user">
+    <el-dialog v-model="dialogVisible" title="New user" @close="resetNewUser">
       <el-form :model="newUser">
         <el-form-item label="id" label-width="60px">
           <el-input v-model="newUser.id" autocomplete="off"></el-input>

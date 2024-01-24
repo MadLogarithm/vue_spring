@@ -27,15 +27,11 @@ export default {
           });
     },
     newUserSubmit() {
-      this.newUser.id = '';
-      this.newUser.name = '';
-      this.newUser.age = '';
+      this.resetNewUser()
       this.dialogVisible = false;
     },
     cancelSubmit() {
-      this.newUser.id = '';
-      this.newUser.name = '';
-      this.newUser.age = '';
+      this.resetNewUser()
       this.dialogVisible = false;
     },
     resetNewUser() {

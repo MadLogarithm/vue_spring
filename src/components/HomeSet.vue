@@ -28,10 +28,10 @@
               <span>home</span>
             </template>
           </el-menu-item>
-          <el-sub-menu index="front">
+          <el-sub-menu index="frontend">
             <template v-slot:title>
               <el-icon><ElementPlus /></el-icon>
-              <span>front</span>
+              <span>frontend</span>
             </template>
             <el-menu-item index="/test">
               <template v-slot:title>

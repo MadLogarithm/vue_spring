@@ -39,6 +39,12 @@
                 <span>test</span>
               </template>
             </el-menu-item>
+            <el-menu-item index="/inputRules">
+              <template v-slot:title>
+                <el-icon><Coin /></el-icon>
+                <span>input</span>
+              </template>
+            </el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="backend">
             <template v-slot:title>

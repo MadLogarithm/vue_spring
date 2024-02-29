@@ -25,7 +25,7 @@ export default {
       form: {
         searchInput: '',
       },
-      selectKeyword: 'account',
+      selectKeyword: '',
       inputRules: {
         account: [
           { required: true, message: '账号不能为空', trigger: 'blur' },

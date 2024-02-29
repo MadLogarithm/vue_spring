@@ -8,6 +8,7 @@ import HomeSet from "@/components/HomeSet.vue";
 import BasicGet from "@/components/BasicGet.vue";
 import BasicSelect from "@/components/BasicSelect.vue";
 import BasicEdit from "@/components/BasicEdit.vue";
+import InputRules from "@/components/InputRules.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -31,6 +32,10 @@ const router = createRouter({
                 {
                     path: '/basicEdit',
                     component: BasicEdit
+                },
+                {
+                    path: '/inputRules',
+                    component: InputRules
                 }
             ]
         }

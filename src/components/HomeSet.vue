@@ -106,6 +106,7 @@ export default {
 <style scoped>
 .home-container {
   flex-wrap: wrap;
+  width: 1528px;
   height: 100%;
 }
 </style>

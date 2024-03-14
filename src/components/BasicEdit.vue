@@ -62,7 +62,20 @@ export default {
       ElMessage({
         message: this.responseMessage,
         type: 'error',
-    });
+      });
+    },
+    deleteRow(id) {
+      axios.delete("http://localhost:8080/user/delete/" + id)
+          .then(response => {
+            this.responseMessage = response.data;
+            this.messageBoxTrue();
+            this.selectAllUser();
+          })
+          .catch(error => {
+            this.responseMessage = error;
+            this.messageBoxFalse();
+            console.error("Error delete user:", error);
+          });
     }
   },
   created() {
@@ -73,10 +86,22 @@ export default {
 
 <template>
   <div id="userTable">
-    <el-table :data="userData" style="width: 70%">
+    <el-table :data="userData" stripe style="width: 70%">
       <el-table-column prop="id" label="id" />
       <el-table-column prop="name" label="name" />
       <el-table-column prop="age" label="age" />
+      <el-table-column fixed="rigtht" label="Operations">
+        <template v-slot:default="scope">
+          <el-button
+              link
+              type="primary"
+              size="small"
+              @click.prevent="deleteRow(scope.row.id)"
+          >
+            Remove
+          </el-button>
+        </template>
+      </el-table-column>
     </el-table>
   </div>
   <div id="editTable">

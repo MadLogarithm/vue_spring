@@ -5,10 +5,10 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 import HomeSet from "@/components/HomeSet.vue";
-import BasicGet from "@/components/BasicGet.vue";
-import BasicSelect from "@/components/BasicSelect.vue";
-import BasicEdit from "@/components/BasicEdit.vue";
-import InputRules from "@/components/InputRules.vue";
+import BasicGet from "@/page/backend/BasicGet.vue";
+import BasicSelect from "@/page/backend/BasicSelect.vue";
+import BasicEdit from "@/page/backend/BasicEdit.vue";
+import InputRules from "@/page/frontend/InputRules.vue";
 
 const router = createRouter({
     history: createWebHistory(),

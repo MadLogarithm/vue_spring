@@ -9,7 +9,7 @@
     </el-header>
     <el-container>
       <el-aside style=
-                    "width: 150px;
+                    "width: 160px;
                     background-color: aliceblue;
                     display: flex;
                     justify-content: center">

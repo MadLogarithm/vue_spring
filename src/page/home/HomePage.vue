@@ -217,6 +217,11 @@ export default {
                     </el-col>
                   </el-row>
                 </div>
+                <el-row style="margin-top: 10px;" v-if="event.type === 'CreateEvent'">
+                  <el-col :span="9">
+                    description: <span>{{event.payload.description}}</span>
+                  </el-col>
+                </el-row>
               </el-col>
             </el-row>
           </div>

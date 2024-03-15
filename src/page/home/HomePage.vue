@@ -56,6 +56,31 @@ export default {
       const seconds = now.getSeconds().toString().padStart(2, '0');
       return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     },
+    strName(str) {
+      let i = 0;
+      for (; i < str.length; i++) {
+        if (str[i] === ']') {
+          break;
+        }
+      }
+      return str.slice(1,i);
+    },
+    strSrc(str) {
+      let i = 0;
+      let j = 0;
+      for (; i < str.length; i++) {
+        if (str[i] === '(') {
+          break;
+        }
+      }
+      i++;
+      for(j = i; j < str.length; j++) {
+        if (str[j] === ')') {
+          break;
+        }
+      }
+      return str.slice(i,j);
+    },
   },
   created() {
     this.getUserInfo();
@@ -132,7 +157,7 @@ export default {
                     repo: <el-link :href="'https://github.com/' + event.repo.name">{{event.repo.name}}</el-link>
                   </el-col>
                   <el-col :span="7">
-                    actor: <el-link :href="event.actor.url">{{event.actor.login}}</el-link>
+                    actor: <el-link :href="'https://github.com/' + event.actor.login">{{event.actor.login}}</el-link>
                   </el-col>
                   <el-col :span="8">
                     time: <span>{{setDate(event.created_at)}}</span>
@@ -151,16 +176,30 @@ export default {
                   <el-col :span="8" v-if="event.type === 'PushEvent'">
                     commit number: <span>{{event.payload.size}}</span>
                   </el-col>
+                  <el-col :span="7" v-if="event.type === 'ReleaseEvent'">
+                    actions: <span>{{event.payload.action}}</span>
+                  </el-col>
                 </el-row>
                 <el-row style="margin-top: 10px;" v-if="event.type === 'ReleaseEvent'">
                   <el-col :span="9">
-                    actions: <span>{{event.payload.action}}</span>
-                  </el-col>
-                  <el-col :span="7">
                     name: <span>{{event.payload.release.name}}</span>
                   </el-col>
-                  <el-col :span="8">
+                  <el-col :span="7">
                     tag: <span>{{event.payload.release.tag_name}}</span>
+                  </el-col>
+                  <el-col :span="8">
+                    author: <el-link :href="event.payload.release.author.html_url">{{event.payload.release.author.login}}</el-link>
+                  </el-col>
+                </el-row>
+                <el-row style="margin-top: 10px;" v-if="event.type === 'ReleaseEvent'">
+                  <el-col :span="9">
+                    release: <el-link :href="strSrc(event.payload.release.body)">{{strName(event.payload.release.body)}}</el-link>
+                  </el-col>
+                  <el-col :span="7">
+                    created_at: <span>{{setDate(event.payload.release.created_at)}}</span>
+                  </el-col>
+                  <el-col :span="8">
+                    published_at: <span>{{setDate(event.payload.release.published_at)}}</span>
                   </el-col>
                 </el-row>
               </el-col>

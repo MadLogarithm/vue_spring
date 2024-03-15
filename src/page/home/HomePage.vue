@@ -209,6 +209,7 @@ export default {
                 </el-row>
                 <div class="commitCard" style="padding-inline: 20px" v-if="event.type === 'PushEvent'">
                   <el-row  v-for="commit in event.payload.commits" v-bind:key="commit.sha">
+                    <el-col :span="3"></el-col>
                     <el-col :span="12">
                       <el-link :href="'https://github.com/' + event.repo.name + '/commit/' + commit.sha">{{commit.message}}</el-link>
                     </el-col>

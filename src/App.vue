@@ -9,6 +9,7 @@ export default {}
 </script>
 
 <style>
+@import url('@/assets/fonts/index.css');
 html,body,#app{
   margin: 0;
   padding: 0;

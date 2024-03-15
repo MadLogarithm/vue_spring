@@ -67,7 +67,7 @@ export default {
             </el-col>
           </el-row>
           <el-row style="margin: 10px;">
-            <div style="color: gray; font-size: 1em; font-family: type01,serif;">
+            <div style="color: gray; font-size: 1em; font-family: MomoStorm,serif;">
               {{user.bio}}
             </div>
           </el-row>

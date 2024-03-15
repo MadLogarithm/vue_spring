@@ -5,9 +5,12 @@ export default {
   name: "HomePage",
   data() {
     return {
-      user: {},
+      user: null,
+      events: null,
       loading: true,
       error: null,
+      eventsLoading: true,
+      eventsError: null,
     }
   },
   methods: {
@@ -21,6 +24,19 @@ export default {
           .catch(error => {
             this.error = error;
             this.loading = false;
+            console.log(error);
+          })
+    },
+    getRecentEvents() {
+      axios.get('https://api.github.com/users/MadLogarithm/events')
+          .then(response => {
+            this.events = response.data;
+            this.eventsLoading = false;
+            console.log("success get recent events");
+          })
+          .catch(error => {
+            this.eventsError = error;
+            this.eventsLoading = false;
             console.log(error);
           })
     },
@@ -42,6 +58,7 @@ export default {
   },
   created() {
     this.getUserInfo();
+    this.getRecentEvents();
   },
 }
 </script>
@@ -52,8 +69,8 @@ export default {
       <i class="el-icon-loading" style="font-size: 20px; padding: 20px;"></i>Loading...
     </div>
     <div class="errorBox" style="margin: 20px" v-if="error">{{error}}</div>
-    <div class="infoCard" style="margin: 20px" v-if="!loading && !error">
-      <el-row>
+    <div class="infoCard" style="margin: 20px" v-if="!loading && !error && user != null">
+      <el-row class="basicInfo">
         <el-col :span="3">
           <el-avatar :size="100" :src="user.avatar_url" />
         </el-col>
@@ -99,10 +116,20 @@ export default {
           </el-row>
         </el-col>
       </el-row>
+      <div v-if="eventsLoading" style="margin-top: 10px">
+        <i class="el-icon-loading" style="font-size: 20px; padding: 20px;"></i>Loading...
+      </div>
+      <el-row class="recentEvents" v-if="!eventsLoading && !eventsError && events != null">
+        {{events}}
+      </el-row>
     </div>
   </div>
 </template>
 
 <style scoped>
-
+.recentEvents {
+  margin-top: 10px;
+  height: 350px;
+  overflow: auto;
+}
 </style>

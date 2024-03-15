@@ -174,7 +174,7 @@ export default {
                     ref: <span>{{event.payload.ref}}</span>
                   </el-col>
                   <el-col :span="8" v-if="event.type === 'PushEvent'">
-                    commit number: <span>{{event.payload.size}}</span>
+                    commits number: <span>{{event.payload.size}}</span>
                   </el-col>
                   <el-col :span="7" v-if="event.type === 'ReleaseEvent'">
                     actions: <span>{{event.payload.action}}</span>
@@ -202,6 +202,21 @@ export default {
                     published_at: <span>{{setDate(event.payload.release.published_at)}}</span>
                   </el-col>
                 </el-row>
+                <el-row style="margin-top: 10px;" v-if="event.type === 'PushEvent'">
+                  <el-col :span="8">
+                    commits list:
+                  </el-col>
+                </el-row>
+                <div class="commitCard" style="padding-inline: 20px" v-if="event.type === 'PushEvent'">
+                  <el-row  v-for="commit in event.payload.commits" v-bind:key="commit.sha">
+                    <el-col :span="12">
+                      <el-link :href="'https://github.com/' + event.repo.name + '/commit/' + commit.sha">{{commit.message}}</el-link>
+                    </el-col>
+                    <el-col :span="8">
+                      author: <el-link :href="'https://github.com/' + commit.author.name">{{commit.author.name}}</el-link>
+                    </el-col>
+                  </el-row>
+                </div>
               </el-col>
             </el-row>
           </div>
@@ -218,7 +233,7 @@ export default {
 }
 .eventsList {
   margin-top: 10px;
-  height: 250px;
+  height: 290px;
   width: 70%;
   overflow: auto;
 }

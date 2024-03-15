@@ -103,41 +103,38 @@ export default {
         <el-col :span="12">
           <el-row>
             <el-col :span="24">
-              <div>
-                <el-link style="font-weight: bolder; line-height: 30px; font-size: 1.2em" :href="user.html_url">
-                  {{user.login}}</el-link>
-              </div>
+              <el-link style="font-weight: bolder; line-height: 30px; font-size: 1.2em" :href="user.html_url">{{user.login}}</el-link>
             </el-col>
           </el-row>
           <el-row style="margin: 10px;">
-            <div style="color: gray; font-size: 1em; font-family: MomoStorm,serif;">
-              {{user.bio}}
+            <div style="color: black; font-size: 1em; font-family: MomoStorm,serif;">
+              {{user.bio}} ——{{user.name}}
             </div>
           </el-row>
           <el-row style="margin-top: 10px">
             <el-col :span="12">
-              Followers: {{user.followers}}
+              Followers: <span>{{user.followers}}</span>
             </el-col>
             <el-col :span="12">
-              Following: {{user.following}}
+              Following: <span>{{user.following}}</span>
             </el-col>
           </el-row>
           <el-row style="margin-top: 10px">
             <el-col :span="12">
-              Company: {{user.company}}
+              Company: <span>{{user.company}}</span>
             </el-col>
             <el-col :span="12">
-              Public Repos: {{user.public_repos}}
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 10px">
-            <el-col :span="24">
-              Created time: {{setDate(user.created_at)}}
+              Public Repos: <span>{{user.public_repos}}</span>
             </el-col>
           </el-row>
           <el-row style="margin-top: 10px">
             <el-col :span="24">
-              Last update: {{setDate(user.updated_at)}}
+              Created time: <span>{{setDate(user.created_at)}}</span>
+            </el-col>
+          </el-row>
+          <el-row style="margin-top: 10px">
+            <el-col :span="24">
+              Last update: <span>{{setDate(user.updated_at)}}</span>
             </el-col>
           </el-row>
         </el-col>
@@ -242,6 +239,13 @@ export default {
   height: 290px;
   width: 70%;
   overflow: auto;
+}
+.basicInfo {
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #606266
+  }
 }
 .eventCard {
   background-color: #FFFFFF;

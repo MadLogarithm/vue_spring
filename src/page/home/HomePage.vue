@@ -66,6 +66,11 @@ export default {
               </div>
             </el-col>
           </el-row>
+          <el-row style="margin: 10px;">
+            <div style="color: gray; font-size: 1em; font-family: type01,serif;">
+              {{user.bio}}
+            </div>
+          </el-row>
           <el-row style="margin-top: 10px">
             <el-col :span="12">
               Followers: {{user.followers}}

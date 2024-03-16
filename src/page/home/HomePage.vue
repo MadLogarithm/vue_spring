@@ -180,6 +180,30 @@ export default {
                   <el-col :span="8">
                     time: <span>{{setDate(event.created_at)}}</span>
                   </el-col>
+                  <el-col :span="7" v-if="event.type === 'WatchEvent' && event.org">
+                    <el-popover style="background-color: rgba(255,255,255,0.5);"
+                                :visible-arrow="false"
+                                placement="bottom-end"
+                                width="180"
+                                trigger="hover"
+                                ref="op_popover" popper-class="op_popover">
+                      <div class="popoverDetail">
+                        <el-row>
+                          <el-col :span="7">
+                            <el-avatar :size="30" :src="event.org.avatar_url" />
+                          </el-col>
+                          <el-col :span="17" style="display: flex; align-items: center">
+                            {{event.org.login}}
+                          </el-col>
+                        </el-row>
+                      </div>
+                      <template #reference>
+                        <div>
+                          author: <el-link :href="'https://github.com/' + event.org.login">{{event.org.login}}</el-link>
+                        </div>
+                      </template>
+                    </el-popover>
+                  </el-col>
                 </el-row>
                 <el-row style="margin-top: 10px">
                   <el-col :span="9">

@@ -154,7 +154,28 @@ export default {
                     repo: <el-link :href="'https://github.com/' + event.repo.name">{{event.repo.name}}</el-link>
                   </el-col>
                   <el-col :span="7">
-                    actor: <el-link :href="'https://github.com/' + event.actor.login">{{event.actor.login}}</el-link>
+                    <el-popover style="background-color: rgba(255,255,255,0.5);"
+                                :visible-arrow="false"
+                                placement="bottom-start"
+                                width="200"
+                                trigger="hover"
+                                ref="op_popover" popper-class="op_popover">
+                      <div class="popoverDetail">
+                        <el-row>
+                          <el-col :span="8">
+                            <el-avatar :size="50" :src="event.actor.avatar_url" />
+                          </el-col>
+                          <el-col :span="16">
+                            {{event.actor.login}}
+                          </el-col>
+                        </el-row>
+                      </div>
+                      <template #reference>
+                        <div>
+                          actor: <el-link :href="'https://github.com/' + event.actor.login">{{event.actor.login}}</el-link>
+                        </div>
+                      </template>
+                    </el-popover>
                   </el-col>
                   <el-col :span="8">
                     time: <span>{{setDate(event.created_at)}}</span>

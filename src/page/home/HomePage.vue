@@ -120,7 +120,7 @@ export default {
             </el-col>
           </el-row>
           <el-row style="margin-top: 10px">
-            <el-col :span="12">
+            <el-col :span="12" v-if="user.company">
               Company: <span>{{user.company}}</span>
             </el-col>
             <el-col :span="12">

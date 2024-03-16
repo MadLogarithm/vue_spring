@@ -33,16 +33,16 @@
               <el-icon><ElementPlus /></el-icon>
               <span>frontend</span>
             </template>
-            <el-menu-item index="/test">
-              <template v-slot:title>
-                <el-icon><Coin /></el-icon>
-                <span>test</span>
-              </template>
-            </el-menu-item>
             <el-menu-item index="/inputRules">
               <template v-slot:title>
                 <el-icon><Coin /></el-icon>
                 <span>input</span>
+              </template>
+            </el-menu-item>
+            <el-menu-item index="/userSearch">
+              <template v-slot:title>
+                <el-icon><User /></el-icon>
+                <span>user</span>
               </template>
             </el-menu-item>
           </el-sub-menu>
@@ -94,12 +94,12 @@ import {
   ElementPlus,
   HomeFilled,
   Memo,
-  MoreFilled
+  MoreFilled, User
 } from "@element-plus/icons-vue";
 
 export default {
   name: "HomeSet.vue",
-  components: {EditPen, Memo, ChatSquare, Connection, Coin, ElementPlus, MoreFilled, HomeFilled}
+  components: {User, EditPen, Memo, ChatSquare, Connection, Coin, ElementPlus, MoreFilled, HomeFilled}
 }
 </script>
 

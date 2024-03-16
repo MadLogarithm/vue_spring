@@ -206,7 +206,28 @@ export default {
                     tag: <span>{{event.payload.release.tag_name}}</span>
                   </el-col>
                   <el-col :span="8">
-                    author: <el-link :href="event.payload.release.author.html_url">{{event.payload.release.author.login}}</el-link>
+                    <el-popover style="background-color: rgba(255,255,255,0.5);"
+                                :visible-arrow="false"
+                                placement="bottom-end"
+                                width="160"
+                                trigger="hover"
+                                ref="op_popover" popper-class="op_popover">
+                      <div class="popoverDetail">
+                        <el-row>
+                          <el-col :span="7">
+                            <el-avatar :size="30" :src="event.payload.release.author.avatar_url" />
+                          </el-col>
+                          <el-col :span="17" style="display: flex; align-items: center">
+                            {{event.payload.release.author.login}}
+                          </el-col>
+                        </el-row>
+                      </div>
+                      <template #reference>
+                        <div>
+                          author: <el-link :href="event.payload.release.author.html_url">{{event.payload.release.author.login}}</el-link>
+                        </div>
+                      </template>
+                    </el-popover>
                   </el-col>
                 </el-row>
                 <el-row style="margin-top: 10px;" v-if="event.type === 'ReleaseEvent'">

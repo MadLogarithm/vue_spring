@@ -157,15 +157,15 @@ export default {
                     <el-popover style="background-color: rgba(255,255,255,0.5);"
                                 :visible-arrow="false"
                                 placement="bottom-start"
-                                width="200"
+                                width="160"
                                 trigger="hover"
                                 ref="op_popover" popper-class="op_popover">
                       <div class="popoverDetail">
                         <el-row>
-                          <el-col :span="8">
-                            <el-avatar :size="50" :src="event.actor.avatar_url" />
+                          <el-col :span="7">
+                            <el-avatar :size="30" :src="event.actor.avatar_url" />
                           </el-col>
-                          <el-col :span="16">
+                          <el-col :span="17" style="display: flex; align-items: center">
                             {{event.actor.login}}
                           </el-col>
                         </el-row>
@@ -232,7 +232,30 @@ export default {
                       <el-link :href="'https://github.com/' + event.repo.name + '/commit/' + commit.sha">{{commit.message}}</el-link>
                     </el-col>
                     <el-col :span="8">
-                      author: <el-link :href="'https://github.com/' + commit.author.name">{{commit.author.name}}</el-link>
+                      <el-popover style="background-color: rgba(255,255,255,0.5);"
+                                  :visible-arrow="false"
+                                  placement="bottom-end"
+                                  width="180"
+                                  trigger="hover"
+                                  ref="op_popover" popper-class="op_popover">
+                        <div class="popoverDetail">
+                          <el-row>
+                            <el-col :span="24">
+                              {{commit.author.name}}
+                            </el-col>
+                          </el-row>
+                          <el-row>
+                            <el-col :span="24">
+                              <span>{{commit.author.email}}</span>
+                            </el-col>
+                          </el-row>
+                        </div>
+                        <template #reference>
+                          <div>
+                            author: <el-link :href="'https://github.com/' + commit.author.name">{{commit.author.name}}</el-link>
+                          </div>
+                        </template>
+                      </el-popover>
                     </el-col>
                   </el-row>
                 </div>
@@ -275,6 +298,13 @@ export default {
   width: 760px;
   text-overflow: clip;
 
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #606266
+  }
+}
+.popoverDetail {
   span {
     font-size: 14px;
     font-weight: 500;

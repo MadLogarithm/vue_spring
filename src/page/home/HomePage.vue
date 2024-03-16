@@ -127,6 +127,14 @@ export default {
               Public Repos: <span>{{user.public_repos}}</span>
             </el-col>
           </el-row>
+          <el-row style="margin-top: 10px" v-if="user.blog || user.twitter_username">
+            <el-col :span="12" v-if="user.blog">
+              blog: <el-link :href="user.blog">{{user.blog}}</el-link>
+            </el-col>
+            <el-col :span="12" v-if="user.twitter_username">
+              twitter_username: <el-link :href="'https://twitter.com/' + user.twitter_username">{{user.twitter_username}}</el-link>
+            </el-col>
+          </el-row>
           <el-row style="margin-top: 10px">
             <el-col :span="24">
               Created time: <span>{{setDate(user.created_at)}}</span>

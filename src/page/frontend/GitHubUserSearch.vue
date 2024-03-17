@@ -350,7 +350,7 @@ export default {
 }
 .eventsList {
   margin-top: 10px;
-  height: 230px;
+  height: 220px;
   width: 70%;
   overflow: auto;
 }

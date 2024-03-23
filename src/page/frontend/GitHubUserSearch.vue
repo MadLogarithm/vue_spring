@@ -18,6 +18,8 @@ export default {
       error: null,
       eventsLoading: false,
       eventsError: null,
+      userCache: {},
+      eventsCache: {},
     }
   },
   methods: {
@@ -28,30 +30,48 @@ export default {
         this.error = null;
         this.eventsError = null;
         this.loading = true;
-        axios.get('https://api.github.com/users/' + user)
-            .then(response => {
-              this.user = response.data;
-              this.loading = false;
-              console.log("success get user info");
-            })
-            .catch(error => {
-              this.error = error;
-              this.loading = false;
-              console.log(error);
-            })
+        if (this.userCache[user]) {
+          this.user = this.userCache[user];
+          this.loading = false;
+          console.log(">>>>>load user from cache");
+        } else {
+          axios.get('https://api.github.com/users/' + user)
+              .then(response => {
+                this.user = response.data;
+                if (!this.userCache[user]) {
+                  this.userCache[user] = response.data;
+                }
+                this.loading = false;
+                console.log(">>>>>load user from github");
+              })
+              .catch(error => {
+                this.error = error;
+                this.loading = false;
+                console.log(error);
+              })
+        }
       }
       if(!this.eventsLoading) {
-        axios.get('https://api.github.com/users/' + user + '/events')
-            .then(response => {
-              this.events = response.data;
-              this.eventsLoading = false;
-              console.log("success get recent events");
-            })
-            .catch(error => {
-              this.eventsError = error;
-              this.eventsLoading = false;
-              console.log(error);
-            })
+        if (this.eventsCache[user]) {
+          this.events = this.eventsCache[user];
+          this.eventsLoading = false;
+          console.log(">>>>>load events from cache");
+        } else {
+          axios.get('https://api.github.com/users/' + user + '/events')
+              .then(response => {
+                this.events = response.data;
+                if (!this.eventsCache[user]) {
+                  this.eventsCache[user] = response.data;
+                }
+                this.eventsLoading = false;
+                console.log(">>>>>load events from github");
+              })
+              .catch(error => {
+                this.eventsError = error;
+                this.eventsLoading = false;
+                console.log(error);
+              })
+        }
       }
     },
     setDate(date) {
@@ -350,7 +370,7 @@ export default {
 }
 .eventsList {
   margin-top: 10px;
-  height: 220px;
+  height: 200px;
   width: 70%;
   overflow: auto;
 }

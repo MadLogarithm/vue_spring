@@ -2,3 +2,7 @@
     font-family: 'MomoStorm';
     src: url('MomoStormFont.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'ShangWeiShouShu';
+    src: url('HYShangWeiShouShuW.ttf') format('truetype');
+}

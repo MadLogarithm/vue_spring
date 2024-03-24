@@ -45,6 +45,12 @@
                 <span>user</span>
               </template>
             </el-menu-item>
+            <el-menu-item index="/cssTest">
+              <template v-slot:title>
+                <el-icon><CoffeeCup /></el-icon>
+                <span>css</span>
+              </template>
+            </el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="backend">
             <template v-slot:title>
@@ -87,7 +93,7 @@
 
 <script>
 import {
-  ChatSquare,
+  ChatSquare, CoffeeCup,
   Coin,
   Connection,
   EditPen,
@@ -99,7 +105,7 @@ import {
 
 export default {
   name: "HomeSet.vue",
-  components: {User, EditPen, Memo, ChatSquare, Connection, Coin, ElementPlus, MoreFilled, HomeFilled}
+  components: {CoffeeCup, User, EditPen, Memo, ChatSquare, Connection, Coin, ElementPlus, MoreFilled, HomeFilled}
 }
 </script>
 

@@ -11,6 +11,7 @@ import BasicEdit from "@/page/backend/BasicEdit.vue";
 import InputRules from "@/page/frontend/InputRules.vue";
 import HomePage from "@/page/home/HomePage.vue";
 import GitHubUserSearch from "@/page/frontend/GitHubUserSearch.vue";
+import CssTest from "@/page/frontend/CssTest.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -46,6 +47,10 @@ const router = createRouter({
                 {
                     path: '/userSearch',
                     component: GitHubUserSearch
+                },
+                {
+                    path: '/cssTest',
+                    component: CssTest
                 }
             ]
         }

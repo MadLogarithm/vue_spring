@@ -1,8 +1,10 @@
 <script>
 import axios from "axios";
+import {Loading} from "@element-plus/icons-vue";
 
 export default {
   name: "HomePage",
+  components: {Loading},
   data() {
     return {
       user: null,
@@ -92,7 +94,7 @@ export default {
 <template>
   <div class="myInfo">
     <div v-if="loading">
-      <i class="el-icon-loading" style="font-size: 20px; padding: 20px;"></i>Loading...
+      <el-icon style="font-size: 20px; padding: 20px; animation: rotating 2s linear infinite reverse;"><Loading /></el-icon>Loading...
     </div>
     <div class="errorBox" style="margin: 20px" v-if="error">{{error}}</div>
     <div class="infoCard" style="margin: 20px" v-if="!loading && !error && user != null">
@@ -148,7 +150,7 @@ export default {
         </el-col>
       </el-row>
       <div v-if="eventsLoading" style="margin-top: 10px">
-        <i class="el-icon-loading" style="font-size: 20px; padding: 20px;"></i>Loading...
+        <el-icon style="font-size: 20px; padding: 20px; animation: rotating 2s linear infinite reverse;"><Loading /></el-icon>Loading...
       </div>
       <div class="errorBox" style="margin: 20px" v-if="eventsError">{{eventsError}}</div>
       <div class="eventsBox" style="margin-top: 20px" v-if="!eventsLoading && !eventsError && events != null">

@@ -1,9 +1,10 @@
 <script>
 import axios from "axios";
-import {Search} from "@element-plus/icons-vue";
+import {Loading, Refresh, Search} from "@element-plus/icons-vue";
 
 export default {
   name: "userSearch",
+  components: {Loading, Refresh},
   computed: {
     Search() {
       return Search
@@ -18,8 +19,10 @@ export default {
       error: null,
       eventsLoading: false,
       eventsError: null,
+      eventsRefreshing: false,
       userCache: {},
       eventsCache: {},
+      eventsUpdateTime: {},
     }
   },
   methods: {
@@ -62,6 +65,8 @@ export default {
                 this.events = response.data;
                 if (!this.eventsCache[user]) {
                   this.eventsCache[user] = response.data;
+                  let currentTime = new Date();
+                  this.eventsUpdateTime[user] = this.setDate(currentTime);
                 }
                 this.eventsLoading = false;
                 console.log(">>>>>load events from github");
@@ -72,6 +77,24 @@ export default {
                 console.log(error);
               })
         }
+      }
+    },
+    refreshEventsList(user) {
+      if(!this.eventsRefreshing) {
+        axios.get('https://api.github.com/users/' + user + '/events')
+            .then(response => {
+              this.events = response.data;
+              this.eventsCache[user] = response.data;
+              let currentTime = new Date();
+              this.eventsUpdateTime[user] = this.setDate(currentTime);
+              this.eventsRefreshing = false;
+              console.log(">>>>>load events from github");
+            })
+            .catch(error => {
+              this.eventsError = error;
+              this.eventsRefreshing = false;
+              console.log(error);
+            })
       }
     },
     setDate(date) {
@@ -128,7 +151,7 @@ export default {
       </el-input>
     </div>
     <div v-if="loading">
-      <i class="el-icon-loading" style="font-size: 20px; padding: 20px;"></i>Loading...
+      <el-icon style="font-size: 20px; padding: 20px; animation: rotating 2s linear infinite reverse;"><Loading /></el-icon>Loading...
     </div>
     <div class="errorBox" style="margin: 20px" v-if="error">{{error}}</div>
     <div class="infoCard" style="margin: 20px" v-if="!loading && !error && user != null">
@@ -185,11 +208,25 @@ export default {
         </el-col>
       </el-row>
       <div v-if="eventsLoading" style="margin-top: 10px">
-        <i class="el-icon-loading" style="font-size: 20px; padding: 20px;"></i>Loading...
+        <el-icon style="font-size: 20px; padding: 20px; animation: rotating 2s linear infinite reverse;"><Loading /></el-icon>Loading...
       </div>
       <div class="errorBox" style="margin: 20px" v-if="eventsError">{{eventsError}}</div>
       <div class="eventsBox" style="margin-top: 20px" v-if="!eventsLoading && !eventsError && events != null">
-        <div style="margin-left: 160px; font-weight: bolder; line-height: 30px; font-size: 1.2em">Recent Events</div>
+        <el-row>
+          <el-col :span="3" />
+          <el-col :span="8" style="font-weight: bolder; line-height: 30px; font-size: 1.2em">Recent Events</el-col>
+          <el-col :span="4" />
+          <el-col :span="8" style="display: flex; line-height: 30px; align-items: center;">
+            events update at:
+            <span style="margin-left: 3px; font-size: 14px; font-weight: 500; color: #606266">{{eventsUpdateTime[user.login]}}</span>
+            <el-icon v-if="!eventsRefreshing"
+                @click="refreshEventsList(user.login)"
+                style="margin-left: 3px; font-size: 22px;"><Refresh /></el-icon>
+            <el-icon v-if="eventsRefreshing"
+                @click="refreshEventsList(user.login)"
+                style="margin-left: 3px; font-size: 22px; animation: rotating 2s linear infinite reverse;"><Refresh /></el-icon>
+          </el-col>
+        </el-row>
         <div class="recentEvents" style="margin-top: 10px">
           <div class="eventsList">
             <el-row class="eventCard" style="height: auto; width: auto; padding: 20px" v-for="event in events" v-bind:key="event.id">
@@ -350,7 +387,7 @@ export default {
                   </el-row>
                 </div>
                 <el-row style="margin-top: 10px;" v-if="event.type === 'CreateEvent'">
-                  <el-col :span="9">
+                  <el-col :span="9" v-if="event.payload.description">
                     description: <span>{{event.payload.description}}</span>
                   </el-col>
                 </el-row>
@@ -364,13 +401,17 @@ export default {
 </template>
 
 <style scoped>
+.myInfo {
+  height: 590px;
+  overflow: hidden;
+}
 .recentEvents {
   display: flex;
   justify-content: center;
 }
 .eventsList {
   margin-top: 10px;
-  height: 200px;
+  height: 250px;
   width: 70%;
   overflow: auto;
 }

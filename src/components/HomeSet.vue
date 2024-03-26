@@ -1,11 +1,14 @@
 <template>
   <el-container class="home-container">
-    <el-header style=
-                   "display:flex;
-                   background-color: antiquewhite;
-                   justify-content: center;
-                   align-items: center">
-      vue_spring
+    <el-header style="background-color: antiquewhite;">
+      <el-row>
+        <el-col :span="8">
+          <img :src="require('@/assets/pic/doodle_jump_sticker_sleep.png')" alt="" style="float: left; height: 60px; width: 60px"/>
+        </el-col>
+        <el-col :span="8" style="display: flex; justify-content: center; align-items: center">
+          vue_spring
+        </el-col>
+      </el-row>
     </el-header>
     <el-container>
       <el-aside style=

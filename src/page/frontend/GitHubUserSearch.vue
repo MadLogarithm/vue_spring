@@ -228,7 +228,8 @@ export default {
           </el-col>
         </el-row>
         <div class="recentEvents" style="margin-top: 10px">
-          <div class="eventsList">
+          <img v-if="!events.length" :src="require('@/assets/pic/doodle_jump_sticker_no.png')" alt="" style="float: left; height: 100px; width: 100px"/>
+          <div v-if="events !== '[]'" class="eventsList">
             <el-row class="eventCard" style="height: auto; width: auto; padding: 20px" v-for="event in events" v-bind:key="event.id">
               <el-col :span="24">
                 <el-row>

@@ -195,7 +195,7 @@ export default {
               blog: <el-link :href="user.blog">{{user.blog}}</el-link>
             </el-col>
             <el-col :span="12" v-if="user.twitter_username">
-              twitter_username: <el-link :href="'https://twitter.com/' + user.twitter_username">{{user.twitter_username}}</el-link>
+              twitter: <el-link :href="'https://twitter.com/' + user.twitter_username">{{user.twitter_username}}</el-link>
             </el-col>
           </el-row>
           <el-row style="margin-top: 10px">

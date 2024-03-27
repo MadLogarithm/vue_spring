@@ -153,7 +153,10 @@ export default {
     <div v-if="loading">
       <el-icon style="font-size: 20px; padding: 20px; animation: rotating 2s linear infinite reverse;"><Loading /></el-icon>Loading...
     </div>
-    <div class="errorBox" style="margin: 20px" v-if="error">{{error}}</div>
+    <div class="errorBox" style="margin: 20px" v-if="error">
+      <img :src="require('@/assets/pic/doodle_jump_sticker_cry.png')" alt="" style="float: left; height: 100px; width: 100px"/>
+      {{error}}
+    </div>
     <div class="infoCard" style="margin: 20px" v-if="!loading && !error && user != null">
       <el-row class="basicInfo">
         <el-col :span="3">
@@ -210,7 +213,10 @@ export default {
       <div v-if="eventsLoading" style="margin-top: 10px">
         <el-icon style="font-size: 20px; padding: 20px; animation: rotating 2s linear infinite reverse;"><Loading /></el-icon>Loading...
       </div>
-      <div class="errorBox" style="margin: 20px" v-if="eventsError">{{eventsError}}</div>
+      <div class="errorBox" style="margin: 20px" v-if="eventsError">
+        <img :src="require('@/assets/pic/doodle_jump_sticker_cry.png')" alt="" style="float: left; height: 100px; width: 100px"/>
+        {{eventsError}}
+      </div>
       <div class="eventsBox" style="margin-top: 20px" v-if="!eventsLoading && !eventsError && events != null">
         <el-row>
           <el-col :span="3" />

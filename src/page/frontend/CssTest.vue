@@ -17,20 +17,24 @@ export default {
       record some interesting CSS usage.
     </el-col>
   </el-row>
-  <div class="underlineCssTest">
-    <el-row style="margin-bottom: 20px">
-      <el-col :span="1" />
-      <el-col :span="20" style="font-size: 1em">· underline animation test:</el-col>
-    </el-row>
-    <div style="margin-left: 80px">
+  <el-row>
+    <el-col :span="24">
+      <div class="underlineCssTest">
+        <el-row style="margin-bottom: 20px">
+          <el-col :span="1" />
+          <el-col :span="20" style="font-size: 1em">· underline animation test:</el-col>
+        </el-row>
+        <div style="margin-left: 80px">
       <span style="font-size: 1.5em; font-family: ShangWeiShouShu,serif">
         Cuanto te habrá dolido acostumbrarte a mí,
         <br>a mi alma sola y salvaje, a mi nombre que todos ahuyentan.
         <br>Hemos visto arder tantas veces el lucero besándonos los ojos
         <br>y sobre nuestras cabezas destorcerse los crepúsculos en abanicos girantes.
       </span>
-    </div>
-  </div>
+        </div>
+      </div>
+    </el-col>
+  </el-row>
 </template>
 
 <style scoped>

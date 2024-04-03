@@ -92,7 +92,7 @@
               </template>
             </el-menu-item>
           </el-sub-menu>
-          <el-menu-item index="/others">
+          <el-menu-item index="/others" disabled>
             <template v-slot:title>
               <el-icon><MoreFilled /></el-icon>
               <span>other</span>

@@ -1,6 +1,8 @@
 # vue_spring
 Record the learning process.
 
+Backend in [SpringBoot_Maven_test](https://github.com/MadLogarithm/SpringBoot_Maven_test).
+
 ## Project setup
 ```
 npm install

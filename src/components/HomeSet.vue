@@ -91,6 +91,12 @@
                 <span>edit</span>
               </template>
             </el-menu-item>
+            <el-menu-item index="/reportGetTest">
+              <template v-slot:title>
+                <el-icon><Operation /></el-icon>
+                <span>test</span>
+              </template>
+            </el-menu-item>
           </el-sub-menu>
           <el-menu-item index="/others" disabled>
             <template v-slot:title>
@@ -116,12 +122,14 @@ import {
   ElementPlus,
   HomeFilled,
   Memo,
-  MoreFilled, User
+  MoreFilled, Operation, User
 } from "@element-plus/icons-vue";
 
 export default {
   name: "HomeSet.vue",
-  components: {CoffeeCup, User, EditPen, Memo, ChatSquare, Connection, Coin, ElementPlus, MoreFilled, HomeFilled}
+  components: {
+    Operation,
+    CoffeeCup, User, EditPen, Memo, ChatSquare, Connection, Coin, ElementPlus, MoreFilled, HomeFilled}
 }
 </script>
 

@@ -12,6 +12,7 @@ import InputRules from "@/page/frontend/InputRules.vue";
 import HomePage from "@/page/home/HomePage.vue";
 import GitHubUserSearch from "@/page/frontend/GitHubUserSearch.vue";
 import CssTest from "@/page/frontend/CssTest.vue";
+import ReportGetTest from "@/page/backend/ReportGetTest.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -51,6 +52,10 @@ const router = createRouter({
                 {
                     path: '/cssTest',
                     component: CssTest
+                },
+                {
+                    path: '/reportGetTest',
+                    component: ReportGetTest
                 }
             ]
         }

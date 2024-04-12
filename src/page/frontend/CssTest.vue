@@ -67,6 +67,21 @@ export default {
   height: 590px;
   overflow: auto;
 }
+body *::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+  height: 10px;
+}
+body *::-webkit-scrollbar-track {
+  background: rgba(0,0,0,.1);
+  border-radius: 0;
+}
+body *::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 5px;
+  background: rgba(0,0,0,.25);
+  transition: color .2s ease;
+}
 .underlineCssTest {
   margin: 40px;
   white-space: pre-wrap;

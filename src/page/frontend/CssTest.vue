@@ -20,7 +20,7 @@ export default {
     </el-row>
     <el-row>
       <el-col :span="24">
-        <div class="underlineCssTest">
+        <div class="underlineCss">
           <el-row style="margin-bottom: 20px">
             <el-col :span="1" />
             <el-col :span="20" style="font-size: 1em">· underline animation test:</el-col>
@@ -38,7 +38,7 @@ export default {
     </el-row>
     <el-row>
       <el-col :span="24">
-        <div class="underlineCssTest">
+        <div class="underlineCss">
           <el-row style="margin-bottom: 20px">
             <el-col :span="1" />
             <el-col :span="20" style="font-size: 1em">· grid animation test:</el-col>
@@ -82,16 +82,16 @@ body *::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,.25);
   transition: color .2s ease;
 }
-.underlineCssTest {
+.underlineCss {
   margin: 40px;
   white-space: pre-wrap;
 }
-.underlineCssTest span {
+.underlineCss span {
   background: linear-gradient(to right, #7e2f2b,#146420) no-repeat right bottom;
   background-size: 0 2px;
   transition: background-size 1s;
 }
-.underlineCssTest span:hover {
+.underlineCss span:hover {
   background-position: left bottom;
   background-size: 100% 2px;
 }

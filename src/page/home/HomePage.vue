@@ -112,8 +112,8 @@ export default {
             </el-col>
           </el-row>
           <el-row style="margin: 10px;">
-            <div style="color: black; font-size: 1em; font-family: MomoStorm,serif;">
-              {{user.bio}} ——{{user.name}}
+            <div class="underlineCss">
+              <span style="color: black; font-size: 1em; font-family: MomoStorm,serif;">{{user.bio}} ——{{user.name}}</span>
             </div>
           </el-row>
           <el-row style="margin-top: 10px">
@@ -335,6 +335,10 @@ export default {
 </template>
 
 <style scoped>
+.myInfo {
+  height: 590px;
+  overflow: hidden;
+}
 .recentEvents {
   display: flex;
   justify-content: center;
@@ -386,5 +390,17 @@ body *::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: rgba(0,0,0,.25);
   transition: color .2s ease;
+}
+.underlineCss {
+  white-space: pre-wrap;
+}
+.underlineCss span {
+  background: linear-gradient(to right, #7e2f2b,#146420) no-repeat right bottom;
+  background-size: 0 2px;
+  transition: background-size 1s;
+}
+.underlineCss span:hover {
+  background-position: left bottom;
+  background-size: 100% 2px;
 }
 </style>

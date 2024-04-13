@@ -6,19 +6,21 @@ export default {
 
 <template>
   <div class="cssTestContainer">
-    <el-row style="color:black; font-size: 1.5em; font-family: 'MomoStorm', serif;">
-      <el-col :span="3" />
-      <el-col :span="8">
-        CSS Test
-      </el-col>
-    </el-row>
-    <el-row style="color: black; font-size:1em; font-family: MomoStorm,serif;">
-      <el-col :span="4" />
-      <el-col :span="20">
-        record some interesting CSS usage.
-      </el-col>
-    </el-row>
-    <el-row>
+    <div class="cssTestIntro">
+      <el-row style="color:black; font-size: 1.5em; font-family: 'MomoStorm', serif;">
+        <el-col :span="3" />
+        <el-col :span="8">
+          CSS Test
+        </el-col>
+      </el-row>
+      <el-row style="color: black; font-size:1em; font-family: MomoStorm,serif;">
+        <el-col :span="4" />
+        <el-col :span="20">
+          record some interesting CSS usage.
+        </el-col>
+      </el-row>
+    </div>
+    <el-row class="underlineCssTest">
       <el-col :span="24">
         <div class="underlineCss">
           <el-row style="margin-bottom: 20px">
@@ -36,9 +38,9 @@ export default {
         </div>
       </el-col>
     </el-row>
-    <el-row>
+    <el-row class="gridCssTest">
       <el-col :span="24">
-        <div class="underlineCss">
+        <div class="gridCss">
           <el-row style="margin-bottom: 20px">
             <el-col :span="1" />
             <el-col :span="20" style="font-size: 1em">· grid animation test:</el-col>
@@ -82,8 +84,8 @@ body *::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,.25);
   transition: color .2s ease;
 }
-.underlineCss {
-  margin: 40px;
+.underlineCss, .gridCss {
+  margin: 40px 40px 0;
   white-space: pre-wrap;
 }
 .underlineCss span {

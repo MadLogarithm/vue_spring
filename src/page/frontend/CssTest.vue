@@ -61,6 +61,28 @@ export default {
         </div>
       </el-col>
     </el-row>
+    <el-row class="loadingCssTest">
+      <el-col :span="24">
+        <div class="loadingCss">
+          <el-row style="margin-bottom: 20px">
+            <el-col :span="1" />
+            <el-col :span="20" style="font-size: 1em">· loading animation test:</el-col>
+          </el-row>
+          <div style="margin-left: 80px">
+            <el-row>
+              <div class="dotLoading">正在加载中<dot>...</dot></div>
+            </el-row>
+            <el-row>
+              <div class="bouncingLoader">
+                <div class="bouncingLoaderItem" />
+                <div class="bouncingLoaderItem" />
+                <div class="bouncingLoaderItem" />
+              </div>
+            </el-row>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -84,7 +106,7 @@ body *::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,.25);
   transition: color .2s ease;
 }
-.underlineCss, .gridCss {
+.underlineCss, .gridCss, .loadingCss {
   margin: 40px 40px 0;
   white-space: pre-wrap;
 }
@@ -120,6 +142,53 @@ body *::-webkit-scrollbar-thumb {
     $cols: set-nth($arr, $c, 2fr);
     grid-template-rows: $rows;
     grid-template-columns: $cols;
+  }
+}
+.dotLoading {}
+.dotLoading > dot {
+  height: 1em;
+  overflow: hidden;
+  display: inline-block;
+  text-align: left;
+  vertical-align: -0.25em;
+  line-height: 1;
+}
+.dotLoading > dot:before {
+  display: block;
+  content: '...\A..\A.';
+  white-space: pre-wrap;
+  animation: dot 3s infinite step-start both;
+}
+@keyframes dot {
+  33% {
+    transform: translateY(-2em);
+  }
+  66% {
+    transform: translateY(-1em);
+  }
+}
+.bouncingLoader {
+  display: flex;
+  justify-content: center;
+}
+.bouncingLoaderItem {
+  width: 16px;
+  height: 16px;
+  margin: 3rem 0.2rem;
+  background-color: #0b16f1;
+  border-radius: 50%;
+  animation: bouncingLoader 0.6s infinite alternate;
+}
+.bouncingLoaderItem:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.bouncingLoaderItem:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes bouncingLoader {
+  to {
+    opacity: 0.1;
+    transform: translate3d(0, -16px, 0);
   }
 }
 </style>

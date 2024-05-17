@@ -210,7 +210,7 @@ body *::-webkit-scrollbar-thumb {
   position: absolute;
   left: 3px;
   text-shadow: 3px 0 red;
-  animation: textAni1 2s linear infinite alternate-reverse;
+  animation: textAni2 2s linear infinite alternate-reverse;
 }
 .textAnimation:after {
   content: attr(data-text);
@@ -218,7 +218,7 @@ body *::-webkit-scrollbar-thumb {
   position: absolute;
   left: 3px;
   text-shadow: -3px 0 blue;
-  animation: textAni2 2s linear infinite alternate-reverse;
+  animation: textAni1 2s linear infinite alternate-reverse;
 }
 @keyframes textAni1 {
   $steps : 25;
@@ -232,7 +232,7 @@ body *::-webkit-scrollbar-thumb {
   $steps : 25;
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
-      clip-path: inset(0 random(750) + px 0 random(750) + px);
+      clip-path: inset(0 random(450) + px 0 random(450) + px);
     }
   }
 }

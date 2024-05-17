@@ -6,7 +6,7 @@
           <img :src="require('@/assets/pic/doodle_jump_sticker_sleep.png')" alt="" style="float: left; height: 60px; width: 60px"/>
         </el-col>
         <el-col :span="8" style="display: flex; justify-content: center; align-items: center">
-          vue_spring
+          <div class="textAnimation" data-text="MadLogar">MadLogar</div>
         </el-col>
         <el-col :span="4" />
         <el-col :span="4" style="padding: 5px">
@@ -133,10 +133,50 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .home-container {
   flex-wrap: wrap;
   width: 1528px;
   height: 100%;
+}
+.textAnimation {
+  width: 750px;
+  color: #000;
+  font-family: MomoStorm,serif;
+  font-size: 45px;
+  position: relative;
+  margin: 0 auto;
+}
+.textAnimation:before {
+  content: attr(data-text);
+  background-color: antiquewhite;
+  position: absolute;
+  left: 2px;
+  text-shadow: 3px 0 red;
+  animation: textAni2 2s linear infinite alternate-reverse;
+}
+.textAnimation:after {
+  content: attr(data-text);
+  background-color: antiquewhite;
+  position: absolute;
+  left: 2px;
+  text-shadow: -3px 0 blue;
+  animation: textAni1 2s linear infinite alternate-reverse;
+}
+@keyframes textAni1 {
+$steps : 25;
+@for $i from 0 through $steps {
+  #{percentage($i*(1/$steps))} {
+    clip-path: inset(random(45) + px 0 random(45) + px 0);
+  }
+}
+}
+@keyframes textAni2 {
+$steps : 25;
+@for $i from 0 through $steps {
+  #{percentage($i*(1/$steps))} {
+    clip-path: inset(0 random(220) + px 0 random(220) + px);
+  }
+}
 }
 </style>

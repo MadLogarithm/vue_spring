@@ -83,6 +83,11 @@ export default {
         </div>
       </el-col>
     </el-row>
+    <el-row class="textAnimationCssTest">
+      <el-col :span="24">
+        <div class="textAnimation" data-text="MadLogar">MadLogar</div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -189,6 +194,46 @@ body *::-webkit-scrollbar-thumb {
   to {
     opacity: 0.1;
     transform: translate3d(0, -16px, 0);
+  }
+}
+.textAnimation {
+  width: 750px;
+  color: #000;
+  font-family: MomoStorm,serif;
+  font-size: 100px;
+  position: relative;
+  margin: 0 auto;
+}
+.textAnimation:before {
+  content: attr(data-text);
+  background-color: #fff;
+  position: absolute;
+  left: 3px;
+  text-shadow: 3px 0 red;
+  animation: textAni1 2s linear infinite alternate-reverse;
+}
+.textAnimation:after {
+  content: attr(data-text);
+  background-color: #fff;
+  position: absolute;
+  left: 3px;
+  text-shadow: -3px 0 blue;
+  animation: textAni2 2s linear infinite alternate-reverse;
+}
+@keyframes textAni1 {
+  $steps : 25;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip-path: inset(random(100) + px 0 random(100) + px 0);
+    }
+  }
+}
+@keyframes textAni2 {
+  $steps : 25;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip-path: inset(0 random(750) + px 0 random(750) + px);
+    }
   }
 }
 </style>

@@ -90,7 +90,7 @@ export default {
             <el-col :span="1" />
             <el-col :span="20" style="font-size: 1em">· text animation test:</el-col>
           </el-row>
-          <div class="textAnimation" data-text="MadLogar">MadLogar</div>
+          <div  style="margin-left: 80px" class="textAnimation" data-text="MadLogar">MadLogar</div>
         </div>
       </el-col>
     </el-row>

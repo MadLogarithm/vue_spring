@@ -101,7 +101,7 @@ export default {
       {{error}}
     </div>
     <div class="infoCard" style="margin: 20px" v-if="!loading && !error && user != null">
-      <el-row class="basicInfo">
+      <el-row>
         <el-col :span="3">
           <el-avatar :size="100" :src="user.avatar_url" />
         </el-col>
@@ -111,45 +111,47 @@ export default {
               <el-link style="font-weight: bolder; line-height: 30px; font-size: 1.2em" :href="user.html_url">{{user.login}}</el-link>
             </el-col>
           </el-row>
-          <el-row style="margin: 10px;">
-            <div class="underlineCss">
-              <span style="color: black; font-size: 1em; font-family: MomoStorm,serif;">{{user.bio}} ——{{user.name}}</span>
-            </div>
-          </el-row>
-          <el-row style="margin-top: 10px">
-            <el-col :span="12">
-              Followers: <span>{{user.followers}}</span>
-            </el-col>
-            <el-col :span="12">
-              Following: <span>{{user.following}}</span>
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 10px">
-            <el-col :span="12" v-if="user.company">
-              Company: <span>{{user.company}}</span>
-            </el-col>
-            <el-col :span="12">
-              Public Repos: <span>{{user.public_repos}}</span>
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 10px" v-if="user.blog || user.twitter_username">
-            <el-col :span="12" v-if="user.blog">
-              blog: <el-link :href="user.blog">{{user.blog}}</el-link>
-            </el-col>
-            <el-col :span="12" v-if="user.twitter_username">
-              twitter: <el-link :href="'https://twitter.com/' + user.twitter_username">{{user.twitter_username}}</el-link>
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 10px">
-            <el-col :span="24">
-              Created time: <span>{{setDate(user.created_at)}}</span>
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 10px">
-            <el-col :span="24">
-              Last update: <span>{{setDate(user.updated_at)}}</span>
-            </el-col>
-          </el-row>
+          <div class="basicInfo">
+            <el-row style="margin: 10px;">
+              <div class="underlineCss">
+                <span style="color: black; font-size: 1em; font-family: MomoStorm,serif;">{{user.bio}} ——{{user.name}}</span>
+              </div>
+            </el-row>
+            <el-row style="margin-top: 10px">
+              <el-col :span="12">
+                Followers: <span>{{user.followers}}</span>
+              </el-col>
+              <el-col :span="12">
+                Following: <span>{{user.following}}</span>
+              </el-col>
+            </el-row>
+            <el-row style="margin-top: 10px">
+              <el-col :span="12" v-if="user.company">
+                Company: <span>{{user.company}}</span>
+              </el-col>
+              <el-col :span="12">
+                Public Repos: <span>{{user.public_repos}}</span>
+              </el-col>
+            </el-row>
+            <el-row style="margin-top: 10px" v-if="user.blog || user.twitter_username">
+              <el-col :span="12" v-if="user.blog">
+                blog: <el-link :href="user.blog">{{user.blog}}</el-link>
+              </el-col>
+              <el-col :span="12" v-if="user.twitter_username">
+                twitter: <el-link :href="'https://twitter.com/' + user.twitter_username">{{user.twitter_username}}</el-link>
+              </el-col>
+            </el-row>
+            <el-row style="margin-top: 10px">
+              <el-col :span="24">
+                Created time: <span>{{setDate(user.created_at)}}</span>
+              </el-col>
+            </el-row>
+            <el-row style="margin-top: 10px">
+              <el-col :span="24">
+                Last update: <span>{{setDate(user.updated_at)}}</span>
+              </el-col>
+            </el-row>
+          </div>
         </el-col>
       </el-row>
       <div v-if="eventsLoading" style="margin-top: 10px">
@@ -335,72 +337,7 @@ export default {
 </template>
 
 <style scoped>
-.myInfo {
-  height: 590px;
-  overflow: hidden;
-}
-.recentEvents {
-  display: flex;
-  justify-content: center;
-}
-.eventsList {
-  margin-top: 10px;
-  height: 250px;
-  width: 70%;
-  overflow: auto;
-}
-.basicInfo {
-  span {
-    font-size: 14px;
-    font-weight: 500;
-    color: #606266
-  }
-}
-.eventCard {
-  background-color: #FFFFFF;
-  border-radius: 0;
-  border-bottom: 1px solid lightgray;
-  width: 760px;
-  text-overflow: clip;
-
-  span {
-    font-size: 14px;
-    font-weight: 500;
-    color: #606266
-  }
-}
-.popoverDetail {
-  span {
-    font-size: 14px;
-    font-weight: 500;
-    color: #606266
-  }
-}
-body *::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 5px;
-  height: 10px;
-}
-body *::-webkit-scrollbar-track {
-  background: rgba(0,0,0,.1);
-  border-radius: 0;
-}
-body *::-webkit-scrollbar-thumb {
-  cursor: pointer;
-  border-radius: 5px;
-  background: rgba(0,0,0,.25);
-  transition: color .2s ease;
-}
-.underlineCss {
-  white-space: pre-wrap;
-}
-.underlineCss span {
-  background: linear-gradient(to right, #7e2f2b,#146420) no-repeat right bottom;
-  background-size: 0 2px;
-  transition: background-size 1s;
-}
-.underlineCss span:hover {
-  background-position: left bottom;
-  background-size: 100% 2px;
-}
+@import "@/assets/css/github.css";
+@import "@/assets/css/scrollbar.css";
+@import "@/assets/css/underline.css";
 </style>

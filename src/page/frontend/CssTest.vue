@@ -85,7 +85,13 @@ export default {
     </el-row>
     <el-row class="textAnimationCssTest">
       <el-col :span="24">
-        <div class="textAnimation" data-text="MadLogar">MadLogar</div>
+        <div class="textCss">
+          <el-row style="margin-bottom: 20px">
+            <el-col :span="1" />
+            <el-col :span="20" style="font-size: 1em">· text animation test:</el-col>
+          </el-row>
+          <div class="textAnimation" data-text="MadLogar">MadLogar</div>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -111,7 +117,7 @@ body *::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,.25);
   transition: color .2s ease;
 }
-.underlineCss, .gridCss, .loadingCss {
+.underlineCss, .gridCss, .loadingCss, .textCss {
   margin: 40px 40px 0;
   white-space: pre-wrap;
 }

@@ -102,6 +102,10 @@ export default {
   height: 590px;
   overflow: auto;
 }
+.underlineCss, .gridCss, .loadingCss, .textCss {
+  margin: 40px 40px 0;
+  white-space: pre-wrap;
+}
 @import "@/assets/css/scrollbar.css";
 @import "@/assets/css/underline.css";
 @import "@/assets/css/grid.scss";

@@ -1,0 +1,23 @@
+.dotLoading {}
+.dotLoading > dot {
+  height: 1em;
+  overflow: hidden;
+  display: inline-block;
+  text-align: left;
+  vertical-align: -0.25em;
+  line-height: 1;
+}
+.dotLoading > dot:before {
+  display: block;
+  content: '...\A..\A.';
+  white-space: pre-wrap;
+  animation: dot 3s infinite step-start both;
+}
+@keyframes dot {
+  33% {
+    transform: translateY(-2em);
+  }
+  66% {
+    transform: translateY(-1em);
+  }
+}

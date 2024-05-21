@@ -1,0 +1,24 @@
+.bouncingLoader {
+    display: flex;
+    justify-content: center;
+}
+.bouncingLoaderItem {
+    width: 16px;
+    height: 16px;
+    margin: 3rem 0.2rem;
+    background-color: #0b16f1;
+    border-radius: 50%;
+    animation: bouncingLoader 0.6s infinite alternate;
+}
+.bouncingLoaderItem:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.bouncingLoaderItem:nth-child(3) {
+    animation-delay: 0.4s;
+}
+@keyframes bouncingLoader {
+    to {
+        opacity: 0.1;
+        transform: translate3d(0, -16px, 0);
+    }
+}

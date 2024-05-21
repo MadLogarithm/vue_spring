@@ -1,0 +1,13 @@
+.underlineCss, .gridCss, .loadingCss, .textCss {
+    margin: 40px 40px 0;
+    white-space: pre-wrap;
+}
+.underlineCss span {
+    background: linear-gradient(to right, #7e2f2b,#146420) no-repeat right bottom;
+    background-size: 0 2px;
+    transition: background-size 1s;
+}
+.underlineCss span:hover {
+    background-position: left bottom;
+    background-size: 100% 2px;
+}

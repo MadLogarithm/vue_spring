@@ -1,0 +1,41 @@
+.myInfo {
+    height: 590px;
+    overflow: hidden;
+}
+.recentEvents {
+    display: flex;
+    justify-content: center;
+}
+.eventsList {
+    margin-top: 10px;
+    height: 250px;
+    width: 70%;
+    overflow: auto;
+}
+.basicInfo {
+    span {
+        font-size: 14px;
+        font-weight: 500;
+        color: #606266
+    }
+}
+.eventCard {
+    background-color: #FFFFFF;
+    border-radius: 0;
+    border-bottom: 1px solid lightgray;
+    width: 760px;
+    text-overflow: clip;
+
+    span {
+        font-size: 14px;
+        font-weight: 500;
+        color: #606266
+    }
+}
+.popoverDetail {
+    span {
+        font-size: 14px;
+        font-weight: 500;
+        color: #606266
+    }
+}

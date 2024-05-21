@@ -140,7 +140,6 @@ export default {
   height: 100%;
 }
 .textAnimation {
-  width: 750px;
   color: #000;
   font-family: MomoStorm,serif;
   font-size: 45px;
@@ -164,19 +163,19 @@ export default {
   animation: textAni1 2s linear infinite alternate-reverse;
 }
 @keyframes textAni1 {
-$steps : 25;
-@for $i from 0 through $steps {
-  #{percentage($i*(1/$steps))} {
-    clip-path: inset(random(45) + px 0 random(45) + px 0);
+  $steps : 25;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip-path: inset(random(45) + px 0 random(45) + px 0);
+    }
   }
-}
 }
 @keyframes textAni2 {
-$steps : 25;
-@for $i from 0 through $steps {
-  #{percentage($i*(1/$steps))} {
-    clip-path: inset(0 random(220) + px 0 random(220) + px);
+  $steps : 25;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip-path: inset(0 random(220) + px 0 random(220) + px);
+    }
   }
-}
 }
 </style>

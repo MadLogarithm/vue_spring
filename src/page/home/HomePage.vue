@@ -153,6 +153,9 @@ export default {
             </el-row>
           </div>
         </el-col>
+        <el-col :span="9">
+          <img src="@/assets/pic/elegant.png" alt="" style="height: 224px"/>
+        </el-col>
       </el-row>
       <div v-if="eventsLoading" style="margin-top: 10px">
         <el-icon style="font-size: 20px; padding: 20px; animation: rotating 2s linear infinite reverse;"><Loading /></el-icon>Loading...

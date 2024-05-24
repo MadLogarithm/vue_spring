@@ -1,34 +1,30 @@
 <template>
-  <el-container class="home-container">
-    <el-header style="background-color: antiquewhite;">
-      <el-row>
-        <el-col :span="8">
-          <img :src="require('@/assets/pic/doodle_jump_sticker_sleep.png')" alt="" style="float: left; height: 60px; width: 60px"/>
-        </el-col>
-        <el-col :span="8" style="display: flex; justify-content: center; align-items: center">
-          <div class="textAnimation" data-text="MadLogar">MadLogar</div>
-        </el-col>
-        <el-col :span="4" />
-        <el-col :span="4" style="padding: 5px">
-          <el-row>
-            <el-col :span="24">
-              <img ref="https://codetime.dev" alt="CodeTime Badge" src="https://img.shields.io/endpoint?style=plastic&color=222&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D25076%26project%3D%26in=0">
-            </el-col>
-          </el-row>
-          <el-row>
-            <el-col :span="24">
-              <img ref="https://codetime.dev" alt="CodeTime Badge" src="https://img.shields.io/endpoint?style=plastic&color=222&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D25076%26project%3D%26in=86400000">
-            </el-col>
-          </el-row>
-        </el-col>
-      </el-row>
-    </el-header>
-    <el-container>
-      <el-aside style=
-                    "width: 160px;
-                    background-color: aliceblue;
-                    display: flex;
-                    justify-content: center">
+  <div class="home-container">
+    <el-row style="background-color: antiquewhite; height: 60px; padding-inline: 20px">
+      <el-col :span="8">
+        <img :src="require('@/assets/pic/doodle_jump_sticker_sleep.png')" alt="" style="float: left; height: 60px; width: 60px"/>
+      </el-col>
+      <el-col :span="8" style="display: flex; justify-content: center; align-items: center">
+        <div class="textAnimation" data-text="MadLogar">MadLogar</div>
+      </el-col>
+      <el-col :span="4" />
+      <el-col :span="4" style="padding: 5px">
+        <el-row>
+          <el-col :span="24">
+            <img ref="https://codetime.dev" alt="CodeTime Badge" src="https://img.shields.io/endpoint?style=plastic&color=222&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D25076%26project%3D%26in=0">
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="24">
+            <img ref="https://codetime.dev" alt="CodeTime Badge" src="https://img.shields.io/endpoint?style=plastic&color=222&url=https%3A%2F%2Fapi.codetime.dev%2Fshield%3Fid%3D25076%26project%3D%26in=86400000">
+          </el-col>
+        </el-row>
+      </el-col>
+    </el-row>
+    <el-row style="height: 648px;">
+      <el-col :span="3" style="background-color: aliceblue;
+                      display: flex;
+                      justify-content: center">
         <el-menu background-color="aliceblue"
                  class="el-menu-vertical-demo"
                  text-color="black"
@@ -105,12 +101,12 @@
             </template>
           </el-menu-item>
         </el-menu>
-      </el-aside>
-      <el-main>
+      </el-col>
+      <el-col :span="21" style="padding: 20px">
         <router-view></router-view>
-      </el-main>
-    </el-container>
-  </el-container>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>

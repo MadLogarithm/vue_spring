@@ -1,0 +1,39 @@
+@function getStar($n) {
+  $star: '#{random(100)}vw #{random(100)}vh aliceblue';
+  @for $i from 2 through $n {
+    $star: '#{$star}, #{random(100)}vw #{random(100)}vh aliceblue';
+}
+  @return unquote($star);
+}
+$duration: 500s;
+$starCnt: 1000;
+@for $i from 1 through 5 {
+  $duration: $duration / 2;
+  $starCnt: floor($starCnt / 2);
+  .nightSky#{$i} {
+    $size: #{$i}px;
+    position: fixed;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    box-shadow: getStar($starCnt);
+    animation: moveUp $duration linear infinite;
+    &::after {
+      content: '';
+      position: fixed;
+      left: 0;
+      top: 100vh;
+      border-radius: inherit;
+      width: inherit;
+      height: inherit;
+      box-shadow: inherit;
+  }
+}
+}
+@keyframes moveUp {
+to {
+transform: translateY(-100vh);
+}
+}

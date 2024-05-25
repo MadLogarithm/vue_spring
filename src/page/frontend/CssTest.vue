@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: "CssTest"
+  name: "CssTest",
+  data() {
+    return {
+      starOn: false,
+    }
+  }
 }
 </script>
 
@@ -94,6 +99,26 @@ export default {
         </div>
       </el-col>
     </el-row>
+    <el-row class="starAnimationCssTest">
+      <el-col :span="24">
+        <div class="starCss">
+          <el-row style="margin-bottom: 20px">
+            <el-col :span="1" />
+            <el-col :span="20" style="font-size: 1em">· star animation test:</el-col>
+          </el-row>
+          <div  style="margin-left: 80px">
+            <el-switch v-model="starOn" />
+            <div class="starAnimation" v-if="starOn">
+              <div class="nightSky1" />
+              <div class="nightSky2" />
+              <div class="nightSky3" />
+              <div class="nightSky4" />
+              <div class="nightSky5" />
+            </div>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -102,7 +127,7 @@ export default {
   height: 590px;
   overflow: auto;
 }
-.underlineCss, .gridCss, .loadingCss, .textCss {
+.underlineCss, .gridCss, .loadingCss, .textCss, .starCss {
   margin: 40px 40px 0;
   white-space: pre-wrap;
 }
@@ -112,4 +137,10 @@ export default {
 @import "@/assets/css/dotLoading.css";
 @import "@/assets/css/bouncingLoader.css";
 @import "@/assets/css/textAnimation.scss";
+@import "@/assets/css/starAnimation";
+.starAnimation {
+  background-color: black;
+  width: 1000px;
+  height: 500px;
+}
 </style>

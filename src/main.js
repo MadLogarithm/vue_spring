@@ -13,6 +13,7 @@ import HomePage from "@/page/home/HomePage.vue";
 import GitHubUserSearch from "@/page/frontend/GitHubUserSearch.vue";
 import CssTest from "@/page/frontend/CssTest.vue";
 import ReportGetTest from "@/page/backend/ReportGetTest.vue";
+import CalenderTest from "@/page/frontend/calendarTest.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -56,6 +57,10 @@ const router = createRouter({
                 {
                     path: '/reportGetTest',
                     component: ReportGetTest
+                },
+                {
+                    path: '/calenderTest',
+                    component: CalenderTest
                 }
             ]
         }
